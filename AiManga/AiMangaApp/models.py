@@ -23,6 +23,7 @@ class Manga(models.Model):
     manga_genre = MultiSelectField(choices=genres, max_choices=1, default=None)
     manga_score = models.FloatField(default=0.0)
     manga_description = models.TextField(max_length=1000)
+    # manga_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
     is_available = models.BooleanField(verbose_name="Is Available For Readers", default=True)
 
 
