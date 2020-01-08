@@ -41,18 +41,3 @@ class Page(models.Model):
     # page_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
     page_order = models.IntegerField(max_length=1000)
     from_chapter= models.ForeignKey(Chapter, on_delete=models.CASCADE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
