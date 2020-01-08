@@ -23,8 +23,29 @@ class Manga(models.Model):
     manga_genre = MultiSelectField(choices=genres, max_choices=1, default=None)
     manga_score = models.FloatField(default=0.0)
     manga_description = models.TextField(max_length=1000)
-    # manga_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
+    # manga_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files, neskol'ko kartinok
     is_available = models.BooleanField(verbose_name="Is Available For Readers", default=True)
+
+class Volume(models.Model):
+    # volume_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
+    volume_order=models.IntegerField(max_length=1000)
+    from_manga = models.ForeignKey(Manga, on_delete=models.CASCADE)
+
+
+class Chapter(models.Model):
+    chapter_order=models.IntegerField(max_length=1000)
+    from_volume = models.ForeignKey(Volume, on_delete=models.CASCADE)
+    # chapter_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
+
+class Page(models.Model):
+    # page_img = models.ImageField(upload_to='game_img/', default=None, null=True)  # need to create static files
+    page_order = models.IntegerField(max_length=1000)
+    from_chapter= models.ForeignKey(Chapter, on_delete=models.CASCADE)
+
+
+
+
+
 
 
 
